@@ -39,4 +39,27 @@
         return arr;
     };
 
+    // Selection Sort
+    Array.prototype.selectionSort = function () {
+        var arr = this,
+            tmp, min;
+
+        for(var i = 0; i < arr.length - 1; i++) {
+            min = i;
+
+            for(var j = i + 1; j < arr.length; j++) {
+                if(arr[j] < min) {
+                    min = arr[j];
+                }
+            }
+
+            tmp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = tmp;
+        }
+
+        return arr;
+    };
+
+    console.log(arr.insertionSort());
 })();
