@@ -61,5 +61,36 @@
         return arr;
     };
 
-    console.log(arr.insertionSort());
+    // Merge Sort
+    Array.prototype.mergeSort = function () {
+        function merge(left, right) {
+            var result = [];
+
+            while(left.length && right.length) {
+                if(left[0] < right[0]) {
+                    result.push(left.shift());
+                } else {
+                    result.push(right.shift());
+                }
+            }
+
+            return result.concat(left).concat(right);
+        }
+        
+        function sort(arr) {
+            if(arr.length == 1) {
+                return arr;
+            }
+
+            var middle = Math.floor(arr.length / 2),
+                left = arr.slice(0, middle),
+                right = arr.slice(middle);
+
+            return merge(sort(left), sort(right));
+        }
+
+        return sort(arr);
+    };
+
+    console.log(arr.mergeSort());
 })();
