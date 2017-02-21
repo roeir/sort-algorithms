@@ -16,7 +16,27 @@
                 }
             }
         }
+
+        return arr;
     };
 
+    // Insertion Sort
+    Array.prototype.insertionSort = function () {
+        var arr = this,
+            j, tmp;
+
+        for(var i = 1; i < arr.length; i++) {
+            j = i - 1;
+
+            while(arr[j] > arr[j + 1] && j >= 0) {
+                tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+                j--;
+            }
+        }
+
+        return arr;
+    };
 
 })();
