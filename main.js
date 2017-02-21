@@ -89,7 +89,7 @@
             return merge(sort(left), sort(right));
         }
 
-        return sort(arr);
+        return sort(this);
     };
 
     console.log(arr.mergeSort());
