@@ -48,8 +48,8 @@
             min = i;
 
             for(var j = i + 1; j < arr.length; j++) {
-                if(arr[j] < min) {
-                    min = arr[j];
+                if(arr[j] < arr[min]) {
+                    min = j;
                 }
             }
 
@@ -127,5 +127,9 @@
         return sort(this);
     };
 
-    console.log(arr.shellSort());
+    console.log('Sorted by bubles', arr.bubbleSort());
+    console.log('Sorted by selection', arr.selectionSort());
+    console.log('Sorted by insertion', arr.insertionSort());
+    console.log('Sorted by merge', arr.mergeSort());
+    console.log('Sorted by shell', arr.shellSort());
 })();
