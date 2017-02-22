@@ -76,7 +76,7 @@
 
             return result.concat(left).concat(right);
         }
-        
+
         function sort(arr) {
             if(arr.length == 1) {
                 return arr;
@@ -127,9 +127,39 @@
         return sort(this);
     };
 
+    // Quick Sort
+    Array.prototype.quickSort = function () {
+        function sort(arr) {
+            if (arr.length <= 1) {
+                return arr;
+            }
+
+            var swapIndex = Math.floor((arr.length - 1) / 2),
+                swapValue = arr[swapIndex],
+                less = [],
+                more = [];
+
+            arr = arr.slice(0, swapIndex).concat(arr.slice(swapIndex + 1));
+
+            for (var i = 0; i < arr.length; i++) {
+                if(arr[i] < swapValue) {
+                    less.push(arr[i]);
+                } else {
+                    more.push(arr[i]);
+                }
+            }
+
+            return sort(less).concat([swapValue], sort(more));
+        }
+
+        return sort(this);
+    };
+
     console.log('Sorted by bubbles', arr.bubbleSort());
     console.log('Sorted by selection', arr.selectionSort());
     console.log('Sorted by insertion', arr.insertionSort());
     console.log('Sorted by merge', arr.mergeSort());
     console.log('Sorted by shell', arr.shellSort());
+    console.log('Sorted by quick', arr.quickSort());
+
 })();
