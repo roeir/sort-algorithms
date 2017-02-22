@@ -127,7 +127,7 @@
         return sort(this);
     };
 
-    console.log('Sorted by bubles', arr.bubbleSort());
+    console.log('Sorted by bubbles', arr.bubbleSort());
     console.log('Sorted by selection', arr.selectionSort());
     console.log('Sorted by insertion', arr.insertionSort());
     console.log('Sorted by merge', arr.mergeSort());
