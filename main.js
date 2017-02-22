@@ -1,6 +1,6 @@
 (function () {
 
-    var arr = [2, 10, 5, 7, 11, 20, 3, 8];
+    var arr = [2, 10, 14, 5, 7, 11, 20, 3, 8, 19];
 
     // Bubble Sort
     Array.prototype.bubbleSort = function () {
@@ -92,5 +92,40 @@
         return sort(this);
     };
 
-    console.log(arr.mergeSort());
+    // Shell sort
+    Array.prototype.shellSort = function () {
+        function sort(arr) {
+            var h = 1;
+
+            while (h * 3 < arr.length) {
+                h = h * 3 + 1;
+            }
+
+            while (h > 0) {
+                hSort(arr, h);
+                h = Math.floor(h / 3);
+            }
+
+            return arr;
+        }
+
+        function hSort(arr, h) {
+            var tmp, j;
+
+            for (var i = h; i < arr.length; i++) {
+                j = i - 1;
+
+                while(arr[j] > arr[j + 1] && j >= 0) {
+                    tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = tmp;
+                    j = j - h;
+                }
+            }
+        }
+
+        return sort(this);
+    };
+
+    console.log(arr.shellSort());
 })();
