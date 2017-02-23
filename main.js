@@ -1,4 +1,5 @@
 (function () {
+    'use strict';
 
     var arr = [2, 10, 14, 5, 7, 11, 20, 3, 8, 19];
 
@@ -162,4 +163,8 @@
     console.log('Sorted by shell', arr.shellSort());
     console.log('Sorted by quick', arr.quickSort());
 
+    // native sort lul
+    console.log('Sorted', arr.sort(function (a, b) {
+        return a - b;
+    }));
 })();
